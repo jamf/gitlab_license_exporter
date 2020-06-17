@@ -9,9 +9,9 @@ jobs:
 
   build:
     name: Test Docker Image build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
-      
+
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag gitlabgoexporter:$(date +%s)
