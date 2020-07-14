@@ -2,8 +2,8 @@ name: Test Docker Image build
 
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - master
 
 jobs:
 
