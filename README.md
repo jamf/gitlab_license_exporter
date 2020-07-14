@@ -1,3 +1,5 @@
+[![Build Status](https://jenkins.public.jamf.build/buildStatus/icon?job=Devops%2FBuild+Infrastructure%2FGitlab%2Fgitlab-exporter-github%2Fmaster)](https://jenkins.jamf.build/job/Devops/job/Build%20Infrastructure/job/Gitlab/job/gitlab-exporter-github/job/master/)
+
 # Gitlab license exporter
 Exposes License expiration date and active users from the Gitlab API, to a Prometheus compatible endpoint.
 
