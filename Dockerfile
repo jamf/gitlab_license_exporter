@@ -1,4 +1,4 @@
-FROM golang:1.14.2 as builder
+FROM docker.jamf.build/golang:1.14.2 as builder
 
 MAINTAINER Someone in the Build_n_Release Team.
 
