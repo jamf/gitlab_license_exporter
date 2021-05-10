@@ -1,8 +1,14 @@
 #!/usr/bin/env groovy
 
-@Library('tools') _
+@Library(['tools', 'build-infrastructure']) _
 
-def branch = (env.CHANGE_BRANCH ?: env.BRANCH_NAME).replaceAll('/', '-').toLowerCase()
-dockerBuild image: "docker.jamf.build/devops/gitlab-exporter-${branch}",
-            tag: "v${env.BUILD_ID}",
-            login: true
+def registryEnv = isProd() ? 'prod' : 'staging'
+
+dockerBuild {
+    agent 'aws-agent'
+	registry '136813947591.dkr.ecr.us-east-1.amazonaws.com'
+    image "${registryEnv}/app/gitlab/gitlab-exporter"
+    tag "v${env.BUILD_ID}"
+    buildArgs "--build-arg GITLAB_VERSION=${gitlab_version}"
+    login true
+}
