@@ -1,12 +1,9 @@
 #!/usr/bin/env groovy
-
 @Library('tools') _
 
-dockerBuild {
-    agent 'aws-agent'
-	registry '136813947591.dkr.ecr.us-east-1.amazonaws.com'
+kanikoBuild {
+    registry '136813947591.dkr.ecr.us-east-1.amazonaws.com'
     image "${getEcrEnv()}/app/gitlab/gitlab-exporter"
-    tags "v${env.BUILD_ID}", "latest"
-    login true
+    tags "v${env.BUILD_ID}", 'latest'
     ecrDeleteLatest true
 }
